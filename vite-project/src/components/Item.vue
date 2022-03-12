@@ -5,7 +5,7 @@ export default {
       text: "This is a test"
     }
   },
-  props: ['title', 'actorDisplayName']
+  props: ['UCDevent', 'title', 'actorDisplayName']
 }
 </script>
 

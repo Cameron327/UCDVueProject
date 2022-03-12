@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <Item v-for="UCDevent in returned" :title="`${UCDevent.title}`" :actorDisplayName="`${UCDevent.actor.displayName}`"/>
+  <Item v-for="UCDevent in returned" :UCDevent="`${UCDevent}`" :title="`${UCDevent.title}`" :actorDisplayName="`${UCDevent.actor.displayName}`"/>
 </template>
 
 <style>

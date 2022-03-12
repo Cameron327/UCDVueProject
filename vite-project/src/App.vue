@@ -1,29 +1,37 @@
 <script>
-import Item from './components/Item.vue'
-import axios from 'axios';
+import Item from "./components/Item.vue";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      returned: null
+      returned: null,
     };
   },
   async created() {
     // Simple GET request using axios
-    const response = await axios.get("https://aggiefeed.ucdavis.edu/api/v1/activity/public?l=25");
+    const response = await axios.get(
+      "https://aggiefeed.ucdavis.edu/api/v1/activity/public?l=25"
+    );
 
-    console.log("Response Data: ", response.data)
+    console.log("Response Data: ", response.data);
     this.returned = response.data;
   },
-  
+
   components: {
-    Item
-  }
+    Item,
+  },
 };
 </script>
 
 <template>
-  <Item v-for="UCDevent in returned" :title="`${UCDevent.title}`" :actorDisplayName="`${UCDevent.actor.displayName}`" :objectType="`${UCDevent.object.objectType}`" :published="`${UCDevent.published}`"/>
+  <Item
+    v-for="UCDevent in returned"
+    :title="`${UCDevent.title}`"
+    :actorDisplayName="`${UCDevent.actor.displayName}`"
+    :objectType="`${UCDevent.object.objectType}`"
+    :published="`${UCDevent.published}`"
+  />
 </template>
 
 <style>
@@ -36,6 +44,5 @@ export default {
   margin-top: 60px;
 }
 </style>
-
 
 // Endpoint: https://aggiefeed.ucdavis.edu/api/v1/activity/public?l=25

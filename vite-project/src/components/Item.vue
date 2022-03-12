@@ -1,34 +1,43 @@
 <script>
-import SubList from './SubList.vue';
+import SubList from "./SubList.vue";
 
 export default {
   data() {
     return {
-      show: false
-    }
+      show: false,
+    };
   },
 
-  props: ['title', 'actorDisplayName', 'objectType', 'published'],
+  props: ["title", "actorDisplayName", "objectType", "published"],
 
   methods: {
-    clickedHandler(message, e){
+    clickedHandler(e) {
       if (e) {
-        e.preventDefault()
+        e.preventDefault();
       }
-      console.log(message);
-    }
+      this.show = !this.show;
+      console.log(this.show);
+    },
   },
 
   components: {
-    SubList
-  }
+    SubList,
+  },
 };
 </script>
 
 <template>
-  <div @click="(e) => clickedHandler('Clicked', e)"  class="card text-center m-3">
-    <div class="card-body">Title of Event: {{title}}</div>
-    <div class="card-body">Display Name: {{actorDisplayName}}</div>
+  <div @click="(e) => clickedHandler(e)">
+    <div class="card-body">Title of Event: {{ title }}</div>
+    <div class="card-body">Display Name: {{ actorDisplayName }}</div>
   </div>
-  <SubList :title="`${title}`" :actorDisplayName="`${actorDisplayName}`" :objectType="`${objectType}`" :published="`${published}`"/>
+  <SubList
+    v-if="show"
+    :title="`${title}`"
+    :actorDisplayName="`${actorDisplayName}`"
+    :objectType="`${objectType}`"
+    :published="`${published}`"
+  />
 </template>
+
+

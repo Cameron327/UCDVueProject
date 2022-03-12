@@ -27,9 +27,9 @@ export default {
 </script>
 
 <template>
-  <div @click="(e) => clickedHandler(e)">
-    <div class="card-body">Title of Event: {{ title }}</div>
-    <div class="card-body">Display Name: {{ actorDisplayName }}</div>
+  <div @click="(e) => clickedHandler(e)" class="listItem">
+    <div class="text">Title of Event: {{ title }}</div>
+    <div class="text">Display Name: {{ actorDisplayName }}</div>
   </div>
   <SubList
     v-if="show"
@@ -40,4 +40,14 @@ export default {
   />
 </template>
 
+<style scoped>
+.listItem {
+  padding-bottom: 15px;
+}
+.text {
+  font-weight: 700;
+  font-size: 20px;
+}
 
+
+</style>

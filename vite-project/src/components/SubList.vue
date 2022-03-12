@@ -11,10 +11,16 @@ export default {
 </script>
 
 <template>
-  <div class="card text-center m-3">
-    <div class="card-body">Title of Event: {{title}}</div>
-    <div class="card-body">Display Name: {{actorDisplayName}}</div>
-    <div class="card-body">Object Type: {{objectType}}</div>
-    <div class="card-body">Published: {{published}}</div>
+  <div class="subListItem">
+    <div class="subText">Title of Event: {{title}}</div>
+    <div class="subText">Display Name: {{actorDisplayName}}</div>
+    <div class="subText">Object Type: {{objectType}}</div>
+    <div class="subText">Published: {{published}}</div>
   </div>
 </template>
+
+<style scoped>
+.subListItem {
+  padding-bottom: 15px;
+}
+</style>

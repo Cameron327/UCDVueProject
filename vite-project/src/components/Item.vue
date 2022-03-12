@@ -45,7 +45,7 @@ export default {
   padding-bottom: 15px;
 }
 .text {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 20px;
 }
 

@@ -25,13 +25,16 @@ export default {
 </script>
 
 <template>
-  <Item
-    v-for="UCDevent in returned"
-    :title="`${UCDevent.title}`"
-    :actorDisplayName="`${UCDevent.actor.displayName}`"
-    :objectType="`${UCDevent.object.objectType}`"
-    :published="`${UCDevent.published}`"
-  />
+  <ul>
+    <li v-for="UCDevent in returned" class="width">
+      <Item
+        :title="`${UCDevent.title}`"
+        :actorDisplayName="`${UCDevent.actor.displayName}`"
+        :objectType="`${UCDevent.object.objectType}`"
+        :published="`${UCDevent.published}`"
+      />
+    </li>
+  </ul>
 </template>
 
 <style>
@@ -42,7 +45,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-left: 31%;
+  content: none;
 }
+.width {
+  width: 50%
+}
+
 </style>
 
 // Endpoint: https://aggiefeed.ucdavis.edu/api/v1/activity/public?l=25

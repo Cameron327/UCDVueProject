@@ -1,13 +1,20 @@
 <script>
+import { ref, toRefs } from "vue";
 
 export default {
-  data() {
-    return {
-      show: false
-    }
-  },
   props: ['title', 'actorDisplayName', 'objectType', 'published'],
-}
+
+  setup(props, context) {
+    let { title, actorDisplayName, objectType, published } = toRefs(props);
+
+    return {
+      title,
+      actorDisplayName,
+      objectType,
+      published
+    };
+  }
+};
 </script>
 
 <template>

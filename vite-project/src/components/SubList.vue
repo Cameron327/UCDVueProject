@@ -1,11 +1,15 @@
 <script>
-import { ref, toRefs } from "vue";
+import { ref, toRefs, onMounted } from "vue";
 
 export default {
   props: ['title', 'actorDisplayName', 'objectType', 'published'],
 
   setup(props, context) {
     let { title, actorDisplayName, objectType, published } = toRefs(props);
+
+    onMounted(() => {
+      console.log("Mounted");
+    });
 
     return {
       title,

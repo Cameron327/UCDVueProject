@@ -1,28 +1,33 @@
 <script>
+import { ref, toRefs } from "vue";
 import SubList from "./SubList.vue";
 
 export default {
-  data() {
-    return {
-      show: false,
-    };
-  },
-
   props: ["title", "actorDisplayName", "objectType", "published"],
+  components: {SubList},
+  setup(props) {
+    // like useState
+    let show = ref(false);
+    let { title, actorDisplayName, objectType, published } = toRefs(props);
 
-  methods: {
-    clickedHandler(e) {
+    let clickedHandler = (e) => {
       if (e) {
         e.preventDefault();
       }
-      this.show = !this.show;
-      console.log(this.show);
-    },
-  },
+      show.value = !show.value;
+      console.log(show.value);
+    }
 
-  components: {
-    SubList,
-  },
+    // this is where you return everything for the html to use (states, props, methods)
+    return {
+      show,
+      title,
+      actorDisplayName,
+      objectType,
+      published,
+      clickedHandler
+    }
+  }
 };
 </script>
 
@@ -48,6 +53,4 @@ export default {
   font-weight: 600;
   font-size: 20px;
 }
-
-
 </style>

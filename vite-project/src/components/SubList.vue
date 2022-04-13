@@ -5,6 +5,7 @@ export default {
   props: ['title', 'actorDisplayName', 'objectType', 'published'],
 
   setup(props, context) {
+    // Destructure the props here and not in the parameters so that it keeps its reactability
     let { title, actorDisplayName, objectType, published } = toRefs(props);
 
     onMounted(() => {

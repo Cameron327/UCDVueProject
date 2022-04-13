@@ -32,17 +32,20 @@ export default {
 </script>
 
 <template>
-  <div @click="(e) => clickedHandler(e)" class="listItem">
-    <div class="text">Title of Event: {{ title }}</div>
-    <div class="text">Display Name: {{ actorDisplayName }}</div>
+  <div>
+    <div @click="(e) => clickedHandler(e)" class="listItem">
+      <div class="text">Title of Event: {{ title }}</div>
+      <div class="text">Display Name: {{ actorDisplayName }}</div>
+    </div>
+    <SubList
+      v-if="show"
+      :title="`${title}`"
+      :actorDisplayName="`${actorDisplayName}`"
+      :objectType="`${objectType}`"
+      :published="`${published}`"
+    />
   </div>
-  <SubList
-    v-if="show"
-    :title="`${title}`"
-    :actorDisplayName="`${actorDisplayName}`"
-    :objectType="`${objectType}`"
-    :published="`${published}`"
-  />
+
 </template>
 
 <style scoped>

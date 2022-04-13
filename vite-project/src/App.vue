@@ -1,32 +1,39 @@
 <script>
 import Item from "./components/Item.vue";
 import axios from "axios";
+import { ref, onMounted } from "vue";
 
 export default {
-  data() {
-    return {
-      returned: null,
-    };
-  },
-  async created() {
-    // Simple GET request using axios
-    const response = await axios.get(
-      "https://aggiefeed.ucdavis.edu/api/v1/activity/public?l=25"
-    );
-
-    console.log("Response Data: ", response.data);
-    this.returned = response.data;
-  },
-
   components: {
-    Item,
+    Item
   },
+
+	setup() {
+    let returned = ref([]);
+
+    let created = async () => {
+      const response = await axios.get(
+        "https://aggiefeed.ucdavis.edu/api/v1/activity/public?l=25"        
+      );
+      console.log("Response Data: ", response.data);      
+      returned.value = [...response.data]
+      console.log("returned.value: ", returned.value);
+    }
+
+    onMounted(async () => await created());
+
+    return {
+      returned
+    }
+
+  }
 };
 </script>
 
 <template>
   <ul>
-    <li v-for="UCDevent in returned" class="width">
+    <!-- Each list item needs a key -->
+    <li v-for="UCDevent in returned" :key="UCDevent.title" class="width">
       <Item
         :title="`${UCDevent.title}`"
         :actorDisplayName="`${UCDevent.actor.displayName}`"

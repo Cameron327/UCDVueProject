@@ -1,9 +1,14 @@
-<script>
+<script lang="ts">
 import { ref, toRefs } from "vue";
 import SubList from "./SubList.vue";
 
 export default {
-  props: ["title", "actorDisplayName", "objectType", "published"],
+  props: {
+    "title": String, 
+    "actorDisplayName": String, 
+    "objectType": String, 
+    "published": String
+  },
   components: {SubList},
   setup(props) {
     // like useState

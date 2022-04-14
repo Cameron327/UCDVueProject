@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import Item from "./components/Item.vue";
 import axios from "axios";
 import { ref, onMounted } from "vue";

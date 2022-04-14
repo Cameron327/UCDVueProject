@@ -1,8 +1,13 @@
-<script>
+<script lang="ts">
 import { ref, toRefs, onMounted } from "vue";
 
 export default {
-  props: ['title', 'actorDisplayName', 'objectType', 'published'],
+  props: {
+    "title": String, 
+    "actorDisplayName": String, 
+    "objectType": String, 
+    "published": String
+  },
 
   setup(props, context) {
     // Destructure the props here and not in the parameters so that it keeps its reactability
